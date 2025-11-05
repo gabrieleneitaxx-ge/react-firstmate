@@ -1,0 +1,123 @@
+ 
+
+/* --- Distinct Footer Styling --- */
+.main-footer {
+    background-color: #1a202c; 
+    color: #edf2f7; 
+    padding: 60px 0 30px;
+    border-top: 5px solid #00ffff; /* Your primary color for a clean line break */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* --- Branding --- */
+.footer-brand {
+    flex: 1; /* Allows it to take up a bit more space */
+    min-width: 200px;
+}
+
+.footer-brand h3 {
+    color: #00ffff; 
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.footer-brand .tagline {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    color: rgba(237, 242, 247, 0.7);
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: rgba(237, 242, 247, 0.5);
+}
+
+/* --- Links --- */
+.footer-links h4,
+.footer-social h4 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #edf2f7;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: #00ffff;
+}
+
+/* --- Social Media Platforms --- */
+.footer-social {
+    text-align: right;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    color: #edf2f7;
+    font-size: 1.8rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+    color: #00ffff; 
+    transform: translateY(-3px);
+}
+
+.footer-social p {
+    font-size: 0.9rem;
+    color: rgba(237, 242, 247, 0.7);
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-brand, .footer-links, .footer-social {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .footer-social {
+        order: -1; /* Move social media to the top on mobile */
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center; /* Center icons on mobile */
+    }
+}

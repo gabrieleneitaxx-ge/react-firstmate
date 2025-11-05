@@ -1,0 +1,80 @@
+/* --- SECTION LAYOUT --- */
+.about-section {
+    padding: 80px 0;
+    background-color: black; 
+    color: #333; 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* --- TWO-COLUMN LAYOUT (Flexbox) --- */
+.about-content {
+    display: flex;
+    align-items: center; /* Vertically centers items */
+    gap: 40px; /* Space between the text and image columns */
+}
+
+.about-text {
+    flex: 1; /* Takes up one part of the available space */
+    padding-right: 20px;
+}
+
+.about-image {
+    flex: 1; /* Also takes up one part, creating a 50/50 split */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- TEXT STYLES --- */
+.about-text h2 {
+    font-size: 3rem;
+    color: #00cccc;
+    margin-bottom: 10px;
+}
+
+.about-text .tagline {
+    font-size: 1.5rem;
+    color: white ; 
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #00cccc;
+}
+
+/* --- IMAGE STYLES --- */
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 900px) {
+    .about-content {
+        /* Stacks the content vertically on smaller screens */
+        flex-direction: column; 
+        text-align: center;
+    }
+
+    .about-text, .about-image {
+        flex: none; /* Disables the 50/50 flex property */
+        width: 100%; /* Makes them full width */
+        padding-right: 0;
+    }
+
+    .about-image {
+        order: -1; /* Puts the image above the text on mobile */
+        margin-bottom: 30px;
+    }
+}

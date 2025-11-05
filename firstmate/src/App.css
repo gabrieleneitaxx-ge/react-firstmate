@@ -1,0 +1,5 @@
+
+html {
+    /* Enables smooth scrolling when clicking on anchor links (#section) */
+    scroll-behavior: smooth;
+}

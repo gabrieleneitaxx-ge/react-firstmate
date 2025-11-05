@@ -1,0 +1,151 @@
+/* --- UNIVERSAL RESET & LAYOUT --- */
+.navbar {
+    background-color: #1a202c; /* Dark, professional background */
+    color: white; /* Light text for contrast */
+    padding: 0.75rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    max-width: 1200px; /* Max width for a desktop view */
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between; /* Space logo/tagline and menu */
+    align-items: center;
+}
+
+/* --- LOGO SECTION --- */
+.logo-section {
+    display: flex;
+    align-items: center;
+    margin-left: -150px;
+    gap: 15px; /* Space between logo parts */
+}
+
+.logo {
+    background-color: rgb(13, 207, 198); /* A vibrant accent color (FirstMate Green) */
+    color: #1a202c;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logo-text {
+    color: #00cccc;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.logo-text:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px var(--primary-color);
+        }
+
+.tagLine {
+    font-size: 1.2rem;
+    color: blanchedalmond; /* Lighter gray for the tagline */
+    font-style: italic;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* --- NAV MENU (Desktop) --2- */
+.nav-menu {
+    display: flex;
+    gap: 50px; /* Space between the main dropdown buttons */
+    color: rgb(13, 207, 198);
+    margin-right: -200px;
+}
+
+/* --- DROPDOWN CONTAINER --- */
+.dropdown {
+    position: relative; /* Essential for positioning the dropdown-content */
+    /* Remove hover styles here since behavior is managed in React with state */
+}
+
+.dropdown-btn {
+    background: none;
+    border: none;
+    color: whitesmoke;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s;
+}
+
+.dropdown-btn:hover {
+    color: #00cccc; /* Highlight on hover */
+}
+
+.dropdown-arrow {
+    font-size: 0.75rem;
+}
+
+/* --- DROPDOWN CONTENT --- */
+.dropdown-content {
+    /* Positioning to drop down from the button */
+    position: absolute;
+    top: 100%; /* Start right below the button */
+    left: 50%;
+    transform: translateX(-50%); /* Center the dropdown content */
+    
+    /* Styling */
+    background-color: #2d3748; /* Slightly lighter dark background */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    z-index: 10; /* Ensure it appears above other content */
+    padding: 0.5rem 0;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: #edf2f7;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: #4a5568; /* Hover for sub-links */
+    font-size: 1rem;
+    color: #00cccc;
+}
+
+/* --- MEDIA QUERIES (Optional but good practice for responsiveness) --- */
+@media (max-width: 900px) {
+    .nav-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav-menu {
+        margin-top: 1rem;
+        flex-wrap: wrap; /* Allows menu items to wrap on smaller screens */
+        justify-content: center;
+        gap: 20px 15px;
+    }
+    
+    .logo-section {
+        justify-content: center;
+    }
+
+    .tagLine {
+        display: none; /* Hide tagline on small screens to save space */
+    }
+}
