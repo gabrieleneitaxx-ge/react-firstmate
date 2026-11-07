@@ -49,7 +49,7 @@ const Hero = () => {
                 
                 {/* Buttons */}
                 <div className="hero-buttons">
-                    <a href="#chat" className="btn btn-primary">Start FirstMate</a>
+                    <a href="#workspace" className="btn btn-primary">Start FirstMate</a>
                     <a href="#ourservice" className="btn btn-secondary">Discover More</a>
                 </div>
             </div>

@@ -13,3 +13,9 @@ body, #root {
     top: 0;          /* Anchors it to the very top */
     z-index: 1000;   /* Ensures it stays above other content */
 }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}

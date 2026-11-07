@@ -18,10 +18,10 @@ const About = () => {
                             <strong>"Personal assistance for the personal assistant"</strong>
                         </p>
                         <p>
-                            FirstMate is an **AI-powered assistant** designed to offer secondary support for primary Personal Assistants (PAs). Created by personal assistants, for personal assistants, with simplicity and functionality in mind.
+                            FirstMate is an <strong>AI-powered assistant</strong> designed to offer secondary support for primary Personal Assistants (PAs). Created by personal assistants, for personal assistants, with simplicity and functionality in mind.
                         </p>
                         <p>
-                            It helps manage your workload by taking on **administrative tasks**, handling **repetitive duties**, and providing **backup support** when you're unavailable. This allows you to focus on more complex, high-priority responsibilities, boosting overall efficiency and effectiveness.
+                            It helps manage your workload by taking on <strong>administrative tasks</strong>, handling <strong>repetitive duties</strong>, and providing <strong>backup support</strong> when you're unavailable. This allows you to focus on more complex, high-priority responsibilities, boosting overall efficiency and effectiveness.
                         </p>
                     </div>
 

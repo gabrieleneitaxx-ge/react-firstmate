@@ -121,3 +121,49 @@
         justify-content: center; /* Center icons on mobile */
     }
 }
+
+/* --- Footer logo (matches the navbar logo) --- */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.footer-logo-mark {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0dcfc6;
+    color: #1a202c;
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    border-radius: 8px;
+}
+
+.footer-logo-text {
+    color: #00cccc;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.footer-logo-text:focus-visible {
+    outline: 2px solid #0dcfc6;
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+    .footer-logo {
+        justify-content: center;
+    }
+}

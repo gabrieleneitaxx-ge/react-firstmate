@@ -17,18 +17,17 @@ const Dropdown = ({ title, items }) => {
         setIsOpen(prev => !prev);
     };
 
-    // 2. Handle click outside logic
-    const handleClickOutside = (event) => {
-        // Check if the ref exists AND if the click target is NOT inside the dropdown
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-            closeDropdown();
-        }
-    };
-    
-    // 3. Attach and clean up the global listener
+    // 2. Close the dropdown when the user clicks outside it
     useEffect(() => {
+        const handleClickOutside = (event) => {
+            // Check if the ref exists AND if the click target is NOT inside the dropdown
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+
         document.addEventListener("mousedown", handleClickOutside);
-        
+
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
