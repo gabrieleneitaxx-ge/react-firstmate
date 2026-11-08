@@ -18,7 +18,7 @@ const Services = () => {
                 {/* 1. Notes & Reminders (Core Admin) */}
                 <div className='service-card'>
                     <h3>Notes & Reminders</h3>
-                    <p>Capture and organize your thoughts with **AI-powered summarization** and smart reminder systems that anticipate your needs.</p>
+                    <p>Capture and organize your thoughts with <strong>AI-powered summarization</strong> and smart reminder systems that anticipate your needs.</p>
                 </div>
 
                 {/* 2. Financial Management (Admin Tasks) */}

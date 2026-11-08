@@ -1,151 +1,446 @@
-/* --- UNIVERSAL RESET & LAYOUT --- */
+/* ========================================
+   NAVBAR
+======================================== */
+
 .navbar {
-    background-color: #1a202c; /* Dark, professional background */
-    color: white; /* Light text for contrast */
+    width: 100%;
+    background-color: #1a202c;
+    color: white;
     padding: 0.75rem 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
+.navbar *,
+.navbar *::before,
+.navbar *::after {
+    box-sizing: border-box;
+}
+
+/* ========================================
+   MAIN CONTAINER
+======================================== */
+
 .container {
-    max-width: 1200px; /* Max width for a desktop view */
+    width: 100%;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 24px;
 }
 
 .nav-content {
     display: flex;
-    justify-content: space-between; /* Space logo/tagline and menu */
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    min-height: 44px;
 }
 
-/* --- LOGO SECTION --- */
+/* ========================================
+   BRAND SECTION - LEFT
+======================================== */
+
 .logo-section {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    margin-left: -150px;
-    gap: 15px; /* Space between logo parts */
+    justify-content: flex-start;
+    gap: 10px;
+
+    flex: 0 0 auto;
+    min-width: 0;
 }
 
+/* FM logo mark */
+
 .logo {
-    background-color: rgb(13, 207, 198); /* A vibrant accent color (FirstMate Green) */
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #0dcfc6;
     color: #1a202c;
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
+
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.5px;
+
+    padding: 0;
+    border-radius: 8px;
     cursor: pointer;
 }
 
+/* FirstMate brand name */
+
 .logo-text {
+    display: inline-block;
     color: #00cccc;
     text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: 1px;
+
+    font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+    white-space: nowrap;
+
+    transition:
+        transform 0.2s ease,
+        text-shadow 0.2s ease;
 }
 
 .logo-text:hover {
-            transform: scale(1.05);
-            text-shadow: 0 0 20px var(--primary-color);
-        }
+    transform: scale(1.03);
+    text-shadow: 0 0 12px rgba(0, 204, 204, 0.35);
+}
+
+/* Brand tagline */
 
 .tagLine {
-    font-size: 1.2rem;
-    color: blanchedalmond; /* Lighter gray for the tagline */
+    margin-left: 4px;
+    max-width: 180px;
+
+    color: blanchedalmond;
+    font-size: 0.78rem;
     font-style: italic;
-    margin-left: 10px;
-    cursor: pointer;
+    line-height: 1.4;
 }
 
-/* --- NAV MENU (Desktop) --2- */
+/* ========================================
+   NAVIGATION MENU - RIGHT
+======================================== */
+
 .nav-menu {
     display: flex;
-    gap: 50px; /* Space between the main dropdown buttons */
-    color: rgb(13, 207, 198);
-    margin-right: -200px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: clamp(10px, 1.4vw, 22px);
+
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
-/* --- DROPDOWN CONTAINER --- */
+.nav-menu > * {
+    flex: 0 0 auto;
+}
+
+/* ========================================
+   DROPDOWN BUTTONS
+======================================== */
+
 .dropdown {
-    position: relative; /* Essential for positioning the dropdown-content */
-    /* Remove hover styles here since behavior is managed in React with state */
+    position: relative;
+    flex: 0 0 auto;
 }
 
 .dropdown-btn {
-    background: none;
-    border: none;
-    color: whitesmoke;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    padding: 0.5rem 0;
-    cursor: pointer;
-    text-decoration: none;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
-    transition: color 0.2s;
+
+    padding: 0.5rem 0;
+
+    background: none;
+    border: none;
+
+    color: whitesmoke;
+    font-size: 0.76rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
 }
 
-.dropdown-btn:hover {
-    color: #00cccc; /* Highlight on hover */
+.dropdown-btn:hover,
+.dropdown-btn:focus-visible {
+    color: #00cccc;
+}
+
+.dropdown-btn:focus-visible,
+.dropdown-content a:focus-visible,
+.logo-text:focus-visible {
+    outline: 2px solid #0dcfc6;
+    outline-offset: 4px;
+    border-radius: 3px;
 }
 
 .dropdown-arrow {
     font-size: 0.75rem;
 }
 
-/* --- DROPDOWN CONTENT --- */
+/* ========================================
+   DROPDOWN CONTENT
+======================================== */
+
 .dropdown-content {
-    /* Positioning to drop down from the button */
     position: absolute;
-    top: 100%; /* Start right below the button */
+    top: 100%;
     left: 50%;
-    transform: translateX(-50%); /* Center the dropdown content */
-    
-    /* Styling */
-    background-color: #2d3748; /* Slightly lighter dark background */
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
-    z-index: 10; /* Ensure it appears above other content */
+    transform: translateX(-50%);
+
+    min-width: 180px;
     padding: 0.5rem 0;
-    border-radius: 4px;
+
+    background-color: #2d3748;
+    border-radius: 6px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+
+    z-index: 1000;
 }
 
 .dropdown-content a {
-    color: #edf2f7;
-    padding: 10px 16px;
-    text-decoration: none;
     display: block;
+    padding: 10px 16px;
+
+    color: #edf2f7;
+    text-decoration: none;
     font-size: 0.9rem;
-    transition: background-color 0.2s;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
-.dropdown-content a:hover {
-    background-color: #4a5568; /* Hover for sub-links */
-    font-size: 1rem;
+.dropdown-content a:hover,
+.dropdown-content a:focus-visible {
+    background-color: #4a5568;
     color: #00cccc;
 }
 
-/* --- MEDIA QUERIES (Optional but good practice for responsiveness) --- */
-@media (max-width: 900px) {
+/* ========================================
+   LAPTOPS AND TABLETS
+   Keep brand LEFT and menus RIGHT
+======================================== */
+
+@media (max-width: 1100px) {
+    .container {
+        padding: 0 16px;
+    }
+
     .nav-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .nav-menu {
-        margin-top: 1rem;
-        flex-wrap: wrap; /* Allows menu items to wrap on smaller screens */
-        justify-content: center;
-        gap: 20px 15px;
-    }
-    
-    .logo-section {
-        justify-content: center;
+        gap: 16px;
     }
 
     .tagLine {
-        display: none; /* Hide tagline on small screens to save space */
+        display: none;
+    }
+
+    .nav-menu {
+        gap: 12px;
+    }
+
+    .dropdown-btn {
+        font-size: 0.68rem;
+        gap: 4px;
+    }
+}
+
+/* ========================================
+   SMALL SCREENS
+   Brand on top, menu underneath
+======================================== */
+
+@media (max-width: 760px) {
+    .nav-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .logo-section {
+        flex: 0 0 auto;
+    }
+
+    .nav-menu {
+        flex: 1 1 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+
+    .dropdown-btn {
+        font-size: 0.75rem;
+    }
+
+    .dropdown-content {
+        min-width: 160px;
+    }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.6rem 0;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+
+    .logo-section {
+        gap: 8px;
+    }
+
+    .logo {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
+        font-size: 1rem;
+        border-radius: 7px;
+    }
+
+    .logo-text {
+        font-size: 1.15rem;
+        letter-spacing: 0.2px;
+    }
+
+    .nav-menu {
+        gap: 8px 12px;
+    }
+
+    .dropdown-btn {
+        font-size: 0.68rem;
+    }
+
+    .dropdown-content {
+        min-width: 150px;
+    }
+}
+
+/* ========================================
+   HAMBURGER BUTTON
+   Hidden on larger screens
+======================================== */
+
+.nav-toggle {
+    display: none;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    width: 44px;
+    height: 44px;
+    padding: 0;
+
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    cursor: pointer;
+
+    transition: border-color 0.2s ease;
+}
+
+.nav-toggle:hover {
+    border-color: #00cccc;
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid #0dcfc6;
+    outline-offset: 3px;
+}
+
+.nav-toggle-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: whitesmoke;
+    border-radius: 2px;
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+/* Turns into an X when the menu is open */
+.nav-toggle.open .nav-toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.open .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.open .nav-toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ========================================
+   PHONE MENU PANEL
+   Logo + hamburger on one slim row.
+   Menus open underneath as a stacked list.
+======================================== */
+
+@media (max-width: 760px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-content {
+        flex-wrap: wrap;
+        gap: 0;
+    }
+
+    .nav-menu {
+        display: none;
+        flex: 1 1 100%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+
+        margin-top: 0.75rem;
+        max-height: calc(100vh - 90px);
+        overflow-y: auto;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .dropdown {
+        width: 100%;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown-btn {
+        width: 100%;
+        justify-content: space-between;
+        padding: 0.95rem 0.25rem;
+        font-size: 0.8rem;
+    }
+
+    /* Open inline under the title instead of floating */
+    .dropdown-content {
+        position: static;
+        transform: none;
+        width: 100%;
+        min-width: 0;
+        margin-bottom: 0.5rem;
+        box-shadow: none;
+    }
+
+    .dropdown-content a {
+        padding: 12px 16px;
     }
 }

@@ -1,12 +1,29 @@
-# React + Vite
+# FirstMate: the Assistant's Assistant
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Vite app that helps a personal assistant with daily routines.
 
-Currently, two official plugins are available:
+## Features
+- **Tasks & reminders**: add, complete, delete, due dates, overdue highlighting.
+- **Notes / records**: titled notes with tags and search.
+- **Bookings**: log flights, trains, hotels and restaurants with date, confirmation ref and status. (Records only; it does not purchase.)
+- **Calendar (Google)**: connect, view upcoming events, schedule meetings with attendee invites, conflict warning, delete events.
+- Tasks, notes and bookings are stored in the browser's localStorage (this device only). There is no backend yet.
+- The "Chat With FirstMate" box is still a scripted demo, not a real assistant.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Setup
+```bash
+npm install
+cp .env.example .env     # then set VITE_GOOGLE_CLIENT_ID
+npm run dev
+npm run lint
+npm run build
+```
 
-## Expanding the ESLint configuration
+## Google Calendar setup
+1. Google Cloud Console: create a project and enable **Google Calendar API**.
+2. Configure the OAuth consent screen (add yourself as a test user while in Testing mode).
+3. Create an **OAuth client ID** of type *Web application*. Add `http://localhost:5173` (and your deployed URL) under *Authorized JavaScript origins*.
+4. Put the client ID in `.env` as `VITE_GOOGLE_CLIENT_ID`. No client secret is used or needed.
+5. Scope requested: `calendar.events`. Access tokens are kept in memory only and expire after about an hour; use Connect again when asked.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Never commit `.env` (it is git-ignored). On Vercel, set `VITE_GOOGLE_CLIENT_ID` in Project Settings, Environment Variables.
